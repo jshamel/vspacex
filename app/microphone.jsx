@@ -5,7 +5,7 @@ import axios from 'axios';
 const FormData = require('form-data');
 import OpenAI from "openai";
 import dotenv from "dotenv";
-dotenv.config();
+// dotenv.config();
 const openApiKey = process.env.OPENAI_API_KEY;
 if (!openApiKey) {
     throw new Error("OPENAI_API_KEY is not set");
