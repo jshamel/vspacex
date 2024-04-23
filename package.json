@@ -9,8 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@huggingface/inference": "^2.6.7",
+    "@langchain/community": "^0.0.51",
+    "@langchain/groq": "^0.0.8",
+    "@langchain/langgraph": "^0.0.12",
+    "@mui/icons-material": "^5.15.15",
+    "@mui/material": "^5.15.15",
     "aws-amplify": "latest",
+    "axios": "^1.6.8",
+    "dotenv": "^16.4.5",
+    "elevenlabs-js": "^1.2.6",
+    "langchain": "^0.1.35",
     "next": "13.5.4",
+    "openai": "^4.38.3",
     "react": "^18",
     "react-dom": "^18"
   },
