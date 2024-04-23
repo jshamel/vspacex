@@ -21,6 +21,7 @@
     "axios": "^1.6.8",
     "dotenv": "^16.4.5",
     "elevenlabs-js": "^1.2.6",
+    "encoding": "^0.1.13",
     "langchain": "^0.1.35",
     "next": "13.5.4",
     "openai": "^4.38.3",
