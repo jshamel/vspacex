@@ -2,6 +2,7 @@
 const webpack = require('webpack');
 const nextConfig = {};
 
+console.log('process.env.NODE_ENV', process.env.NODE_ENV);
 // Load dotenv config for local development
 if (process.env.NODE_ENV !== 'production') {
   const { parsed: myEnv } = require('dotenv').config({
