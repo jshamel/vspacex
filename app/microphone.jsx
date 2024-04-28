@@ -10,13 +10,20 @@ const openApiKey = process.env.OPENAI_API_KEY;
 if (!openApiKey) {
     throw new Error("OPENAI_API_KEY is not set");
 }
-const openai = new OpenAI({apiKey:  openApiKey , dangerouslyAllowBrowser: true });
+const openai = new OpenAI({ apiKey: openApiKey, dangerouslyAllowBrowser: true });
+const Groq = require("groq-sdk");
+// const groq = new Groq({
+//     apiKey: process.env.GROQ_API_KEY
+// });
 
-const Microphone = ({handleSend}) => {
+const groq = new Groq({ dangerouslyAllowBrowser: true, apiKey: process.env.GROQ_API_KEY })
+
+
+const Microphone = ({ handleSend }) => {
     const [isRecording, setIsRecording] = useState(false);
     const [mediaRecorder, setMediaRecorder] = useState(null);
     const [latestSpeachToText, setLatestSpeachToText] = useState("");
-    
+
     const [audioUrl, setAudioUrl] = useState("");
 
     useEffect(() => {
@@ -46,10 +53,28 @@ const Microphone = ({handleSend}) => {
                     formData.append('file', blob, "audio.ogg");
                     console.log(formData);
 
+                    // const chatCompletion = await groq.chat.completions.create({
+                    //     messages: [
+                    //         {
+                    //             role: "user",
+                    //             content: "Explain the importance of fast language models"
+                    //         }
+                    //     ],
+                    //     model: "mixtral-8x7b-32768"
+                    // });
+
+
+
+                    // let voiceText = chatCompletion.choices[0]?.message?.content || ""
+
+                    // console.log(response.data);
+                    // handleSend(response.data.text)
+                    // setLatestSpeachToText(response.data.text)
+
                     axios.post('https://api.openai.com/v1/audio/transcriptions', formData, {
                         headers: {
                             'Content-Type': `multipart/form-data; boundary=${formData._boundary}`,
-                            'Authorization': 'Bearer '+openApiKey
+                            'Authorization': 'Bearer ' + openApiKey
                         }
                     })
                         .then(response => {
@@ -65,9 +90,9 @@ const Microphone = ({handleSend}) => {
                     //     file: blob,
                     //     model: "whisper-1",
                     //   });
-                    
+
                     //   console.log(transcription.text);
-                    
+
 
 
 
